@@ -1,17 +1,19 @@
 # kadane.py
 
-def kadane(arr):
-    max_actual = max_global = arr[0]
+def kadane(A):
+    sum=0
+    resp=0
+    for i in range(0, len(A)):
+        print(f'sum: {sum}      resp: {resp}')
+        print(f'sum = max({sum} + {A[i]},{A[i]}) = {max(sum + A[i], A[i])}')
+        sum = max(sum + A[i], A[i])
+        print(f'resp = max({resp},{sum}) = {max(resp, sum)}')
+        resp = max(resp, sum)
+        print("\n")
 
-    for i in range(1, len(arr)):
-        max_actual = max(arr[i], max_actual + arr[i])
-        if max_actual > max_global:
-            max_global = max_actual
-
-    return max_global
+    return resp
 
 if __name__ == "__main__":
-    # Ejemplo de uso:
-    mi_array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-    resultado = kadane(mi_array)
+    A = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    resultado = kadane(A)
     print("La suma máxima de la subcadena es:", resultado)
