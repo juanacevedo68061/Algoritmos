@@ -1,17 +1,19 @@
 # kadane.py
 
 def kadane(A):
-    sum=0
-    resp=0
+    suma_temporal=0
+    suma_maxima=0
     for i in range(0, len(A)):
-        print(f'sum: {sum}      resp: {resp}')
-        print(f'sum = max({sum} + {A[i]},{A[i]}) = {max(sum + A[i], A[i])}')
-        sum = max(sum + A[i], A[i])
-        print(f'resp = max({resp},{sum}) = {max(resp, sum)}')
-        resp = max(resp, sum)
+        print(f'suma_temporal: {suma_temporal}      suma_maxima: {suma_maxima}')
+        print(f'suma_temporal = max({suma_temporal} + {A[i]},{A[i]}) = {max(suma_temporal + A[i], A[i])}')
+        
+        suma_temporal = max(suma_temporal + A[i], A[i])
+        
+        print(f'suma_maxima = max({suma_maxima},{suma_temporal}) = {max(suma_maxima, suma_temporal)}')
+        suma_maxima = max(suma_maxima, suma_temporal)
         print("\n")
 
-    return resp
+    return suma_maxima
 
 if __name__ == "__main__":
     A = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
